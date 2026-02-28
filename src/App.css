@@ -206,6 +206,16 @@ body {
   outline: none;
 }
 
+.card-purchase-btn--sold-out {
+  background: #4b5563;
+  color: var(--muted);
+  cursor: default;
+}
+
+.card-purchase-btn--sold-out:hover {
+  background: #4b5563;
+}
+
 /* Shared button (components/Button.jsx) */
 .btn {
   font-family: inherit;

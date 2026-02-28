@@ -1,14 +1,22 @@
+import { useState } from 'react'
 import { usePokemonData } from '@/features/cards/hooks/usePokemonData'
 import { CardsGrid } from '@/features/cards/components/CardsGrid'
 import { Loader } from '@/components/Loader'
 
-// TODO: implement purchase flow (e.g. checkout, NFT mint, etc.)
-function handlePurchaseClick(card) {
-  console.log('Purchase clicked for:', card.id, card.name)
-}
-
 export function Home() {
   const { cards, loading, error } = usePokemonData()
+  const [purchaseCounts, setPurchaseCounts] = useState({})
+
+  // Tracks how many times each specific card has been "purchased".
+  // When a card reaches 10 clicks, it becomes sold out and can no longer be clicked.
+  const handlePurchaseClick = (card) => {
+    setPurchaseCounts((prev) => {
+      const current = prev[card.id] ?? 0
+      const next = current + 1
+      console.log('pressed button',purchaseCounts)
+      return { ...prev, [card.id]: next }
+    })
+  }
 
   if (loading) {
     return (
@@ -45,7 +53,11 @@ export function Home() {
         </p>
       </header>
 
-      <CardsGrid cards={cards} onPurchaseClick={handlePurchaseClick} />
+      <CardsGrid
+        cards={cards}
+        onPurchaseClick={handlePurchaseClick}
+        purchaseCounts={purchaseCounts}
+      />
 
       <footer className="footer">
         <p>Prices update hourly (TCGplayer) to daily (Cardmarket). Built for future NFT card listings.</p>

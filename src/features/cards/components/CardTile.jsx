@@ -1,7 +1,13 @@
 import { cardImageUrl } from '@/utils/cardImageUrl'
 import { CardPrice } from './CardPrice'
 
-export function CardTile({ card, rank, onPurchaseClick }) {
+export function CardTile({ card, rank, onPurchaseClick, isSoldOut }) {
+  const handleClick = () => {
+    if (!isSoldOut) {
+      onPurchaseClick(card)
+    }
+  }
+
   return (
     <article className="card-tile">
       <span className="rank">#{rank}</span>
@@ -14,10 +20,11 @@ export function CardTile({ card, rank, onPurchaseClick }) {
         <CardPrice card={card} />
         <button
           type="button"
-          className="card-purchase-btn"
-          onClick={() => onPurchaseClick(card)}
+          className={`card-purchase-btn${isSoldOut ? ' card-purchase-btn--sold-out' : ''}`}
+          onClick={handleClick}
+          disabled={isSoldOut}
         >
-          Purchase
+          {isSoldOut ? 'Sold out' : 'Purchase'}
         </button>
       </div>
     </article>
