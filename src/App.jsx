@@ -14,6 +14,11 @@ function cardImageUrl(url) {
   return url.startsWith(base) ? base + withFormat : url
 }
 
+// TODO: implement purchase flow (e.g. checkout, NFT mint, etc.)
+function handlePurchaseClick(card) {
+  console.log('Purchase clicked for:', card.id, card.name)
+}
+
 function formatPrice(value, unit = 'USD') {
   if (value == null) return '—'
   const sym = unit === 'EUR' ? '€' : '$'
@@ -107,6 +112,13 @@ function App() {
               <h2 className="card-name">{card.name}</h2>
               <p className="card-set">{card.set?.name ?? '—'}</p>
               <CardPrice card={card} />
+              <button
+                type="button"
+                className="card-purchase-btn"
+                onClick={() => handlePurchaseClick(card)}
+              >
+                Purchase
+              </button>
             </div>
           </article>
         ))}
