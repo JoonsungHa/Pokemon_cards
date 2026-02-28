@@ -179,6 +179,72 @@ body {
   font-size: 0.9rem;
 }
 
+.card-purchase-btn {
+  margin-top: 0.75rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.card-purchase-btn:hover {
+  background: var(--accent-dim);
+}
+
+.card-purchase-btn:active {
+  transform: scale(0.98);
+}
+
+.card-purchase-btn:focus {
+  outline: none;
+}
+
+.card-purchase-btn--sold-out {
+  background: #4b5563;
+  color: var(--muted);
+  cursor: default;
+}
+
+.card-purchase-btn--sold-out:hover {
+  background: #4b5563;
+}
+
+/* Shared button (components/Button.jsx) */
+.btn {
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn:focus {
+  outline: none;
+}
+.btn--primary {
+  padding: 0.5rem 1rem;
+  color: var(--bg);
+  background: var(--accent);
+}
+.btn--primary:hover {
+  background: var(--accent-dim);
+}
+.btn--wallet {
+  padding: 0.5rem 1rem;
+  color: var(--bg);
+  background: var(--surface2);
+}
+.btn--wallet:hover {
+  background: var(--muted);
+}
+
 .footer {
   margin-top: 3rem;
   padding-top: 1.5rem;

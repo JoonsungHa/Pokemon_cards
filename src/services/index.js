@@ -1,0 +1,6 @@
+/**
+ * Global API / blockchain config (e.g. Alchemy, Infura).
+ * Export client instances or env-based config when ready.
+ */
+// export const alchemyClient = ...
+// export const infuraConfig = ...
