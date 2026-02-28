@@ -13,7 +13,7 @@ export function Home() {
     setPurchaseCounts((prev) => {
       const current = prev[card.id] ?? 0
       const next = current + 1
-      console.log('pressed button',purchaseCounts)
+      console.log('Number of', card.name, "sold so far are", next)
       return { ...prev, [card.id]: next }
     })
   }
