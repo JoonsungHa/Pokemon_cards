@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { usePokemonData } from '@/features/cards/hooks/usePokemonData'
 import { CardsGrid } from '@/features/cards/components/CardsGrid'
 import { Loader } from '@/components/Loader'
@@ -46,7 +47,10 @@ export function Home() {
   return (
     <div className="app">
       <header className="header">
-        <h1>Pokémon TCG Prices</h1>
+        <div className="header-top">
+          <h1>Pokémon TCG Prices</h1>
+          <ConnectButton />
+        </div>
         <p className="tagline">
           Top 10 most expensive cards · Data from{' '}
           <a href="https://tcgdex.dev/markets-prices" target="_blank" rel="noopener noreferrer">TCGdex</a> (Cardmarket & TCGplayer)
