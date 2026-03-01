@@ -171,6 +171,13 @@ body {
   margin: 0;
 }
 
+.card-price-eth {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0.25rem 0 0;
+}
+
 .card-prices {
   display: flex;
   flex-wrap: wrap;

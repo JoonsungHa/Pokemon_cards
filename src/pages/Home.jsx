@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { usePokemonData } from '@/features/cards/hooks/usePokemonData'
+import { useEthPrice } from '@/features/cards/hooks/useEthPrice'
 import { CardsGrid } from '@/features/cards/components/CardsGrid'
 import { Loader } from '@/components/Loader'
 
 export function Home() {
   const { cards, loading, error } = usePokemonData()
+  const { ethUsd } = useEthPrice()
   const [purchaseCounts, setPurchaseCounts] = useState({})
 
   // Tracks how many times each specific card has been "purchased".
@@ -61,6 +63,7 @@ export function Home() {
         cards={cards}
         onPurchaseClick={handlePurchaseClick}
         purchaseCounts={purchaseCounts}
+        ethUsd={ethUsd}
       />
 
       <footer className="footer">
