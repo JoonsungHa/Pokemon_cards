@@ -41,6 +41,18 @@ body {
   margin-bottom: 2rem;
 }
 
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.35em;
+}
+.header-top h1 {
+  margin: 0;
+}
+
 .header h1 {
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   font-weight: 700;
@@ -157,6 +169,13 @@ body {
   font-size: 0.85rem;
   color: var(--muted);
   margin: 0;
+}
+
+.card-price-eth {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0.25rem 0 0;
 }
 
 .card-prices {
