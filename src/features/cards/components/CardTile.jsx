@@ -13,10 +13,10 @@ function formatEth(ethAmount) {
   return parseFloat(str).toString()
 }
 
-export function CardTile({ card, rank, onPurchaseClick, isSoldOut, ethUsd }) {
+export function CardTile({ card, rank, onPurchaseClick, isSoldOut, ethUsd, isPurchasePending }) {
   const handleClick = () => {
-    if (!isSoldOut) {
-      onPurchaseClick(card)
+    if (!isSoldOut && ethPrice != null) {
+      onPurchaseClick(card, ethPrice)
     }
   }
 
@@ -39,9 +39,13 @@ export function CardTile({ card, rank, onPurchaseClick, isSoldOut, ethUsd }) {
           type="button"
           className={`card-purchase-btn${isSoldOut ? ' card-purchase-btn--sold-out' : ''}`}
           onClick={handleClick}
-          disabled={isSoldOut}
+          disabled={isSoldOut || ethPrice == null || isPurchasePending}
         >
-          {isSoldOut ? 'Sold out' : `Purchase · ${ethDisplay != null ? `${ethDisplay} ETH` : '—'}`}
+          {isPurchasePending
+            ? 'Confirming…'
+            : isSoldOut
+              ? 'Sold out'
+              : `Purchase · ${ethDisplay != null ? `${ethDisplay} ETH` : '—'}`}
         </button>
       </div>
     </article>

@@ -1,6 +1,6 @@
 import { CardTile } from './CardTile'
 
-export function CardsGrid({ cards, onPurchaseClick, purchaseCounts = {}, ethUsd }) {
+export function CardsGrid({ cards, onPurchaseClick, purchaseCounts = {}, ethUsd, isPurchasePending }) {
   return (
     <section className="cards-grid">
       {cards.map((card, i) => {
@@ -15,6 +15,7 @@ export function CardsGrid({ cards, onPurchaseClick, purchaseCounts = {}, ethUsd 
             onPurchaseClick={onPurchaseClick}
             isSoldOut={isSoldOut}
             ethUsd={ethUsd}
+            isPurchasePending={isPurchasePending}
           />
         )
       })}
