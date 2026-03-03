@@ -1,5 +1,15 @@
 # React + Vite
 
+## Run the app
+
+```bash
+npm run dev
+```
+
+Then open the URL shown in the terminal (e.g. http://localhost:5173).
+
+---
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
